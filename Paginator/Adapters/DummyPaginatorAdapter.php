@@ -19,18 +19,16 @@ use Doctrine\ORM\Query;
  */
 class DummyPaginatorAdapter extends AbstractPaginatorAdapter
 {
-    /**
-     * {@inheritdoc}
-     */
-    public static function supports($className)
+    public static function supports(string $className): bool
     {
         return true;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function setTarget($target)
+    public function initPagination(): void
+    {
+    }
+
+    public function setTarget($target): PaginatorAdapterInterface
     {
         if ($target instanceof Query) {
             $this->target = $target->getResult();
@@ -41,32 +39,8 @@ class DummyPaginatorAdapter extends AbstractPaginatorAdapter
         return parent::setTarget($target);
     }
 
-    /**
-     * @return int
-     */
-    public function getTotalItemCount()
+    public function getTotalItemCount(): int
     {
         return count($this->target);
     }
-
-    /**
-     * @return array
-     */
-    public function getPagination()
-    {
-        return $this->target;
-    }
-    /**
-     * @return PaginationInterface
-     */
-    protected function initPagination()
-    {
-        return $this->paginator->paginate(
-            $this->target,
-            $this->currentPage,
-            $this->maxPerPage,
-            $this->options
-        );
-    }
-
 }
