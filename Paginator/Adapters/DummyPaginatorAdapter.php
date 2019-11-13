@@ -56,4 +56,17 @@ class DummyPaginatorAdapter extends AbstractPaginatorAdapter
     {
         return $this->target;
     }
+    /**
+     * @return PaginationInterface
+     */
+    protected function initPagination()
+    {
+        return $this->paginator->paginate(
+            $this->target,
+            $this->currentPage,
+            $this->maxPerPage,
+            $this->options
+        );
+    }
+
 }
