@@ -24,7 +24,7 @@ class KnpPaginatorAdapter extends AbstractPaginatorAdapter
 {
     public static function supports(string $className): bool
     {
-        return $className === Paginator::class;
+        return true;
     }
 
     protected function initPagination(): void
