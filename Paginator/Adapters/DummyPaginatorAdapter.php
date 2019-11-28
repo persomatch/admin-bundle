@@ -28,6 +28,10 @@ class DummyPaginatorAdapter extends AbstractPaginatorAdapter
     {
     }
 
+    public function configurePagination(): void
+    {
+    }
+
     public function setTarget($target): PaginatorAdapterInterface
     {
         if ($target instanceof Query) {
@@ -43,4 +47,6 @@ class DummyPaginatorAdapter extends AbstractPaginatorAdapter
     {
         return count($this->target);
     }
+
+
 }
