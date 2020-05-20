@@ -56,4 +56,12 @@ class DummyPaginatorAdapter extends AbstractPaginatorAdapter
     {
         return $this->target;
     }
+
+    /**
+     * @inheritDoc
+     */
+    protected function initPagination()
+    {
+    }
+
 }
