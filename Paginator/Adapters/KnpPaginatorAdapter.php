@@ -35,7 +35,8 @@ class KnpPaginatorAdapter extends AbstractPaginatorAdapter
      */
     public static function supports($className)
     {
-        return $className === 'Knp\\Component\\Pager\\Paginator';
+//        return $className === 'Knp\\Component\\Pager\\Paginator';
+        return true;
     }
 
     /**
